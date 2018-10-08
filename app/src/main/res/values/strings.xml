@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">KotlinTutorialLearn</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Kotlin Tutorial</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="helloWorld">Kotlin Hello World</string>
+    <string name="dataTypes">Kotlin Variables and Basic Types</string>
+    <string name="operators">Kotlin Operators</string>
+    <string name="conversion">Kotlin Type Conversion</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
