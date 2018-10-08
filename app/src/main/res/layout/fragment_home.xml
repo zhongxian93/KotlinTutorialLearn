@@ -16,28 +16,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
             <Button
                 android:id="@+id/Btn1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="?android:attr/colorEdgeEffect"
                 android:text="@string/helloWorld" />
 
             <Button
                 android:id="@+id/Btn2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="?android:attr/colorEdgeEffect"
                 android:text="@string/dataTypes" />
 
             <Button
                 android:id="@+id/Btn3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="?android:attr/colorEdgeEffect"
                 android:text="@string/operators" />
 
             <Button
                 android:id="@+id/Btn4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="?android:attr/colorEdgeEffect"
                 android:text="@string/conversion" />
         </LinearLayout>
     </ScrollView>
