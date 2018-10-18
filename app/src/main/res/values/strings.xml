@@ -10,7 +10,58 @@
     <string name="dataTypes">Kotlin Variables and Basic Types</string>
     <string name="operators">Kotlin Operators</string>
     <string name="conversion">Kotlin Type Conversion</string>
+    <string name="quiz">Kotlin Quiz</string>
 
+    <string name="Question1">1) Which is the correct statement to print "Hello World!" in kotlin?</string>
+    <string name="Question1Op1">println("Hello, World!")</string>
+    <string name="Question1Op2">System.out.println("Hello, World!");</string>
+    <string name="Question1Op3">printline("Hello, World!")</string>
+    <string name="Question1Op4">System.out.println("Hello, World!");</string>
+
+    <string name="Question2">2) Which is the correct way to declare a variable in Kotlin?</string>
+    <string name="Question2Op1">String name = "jonny"</string>
+    <string name="Question2Op2">Int size = 0;</string>
+    <string name="Question2Op3">var name: "jonny"</string>
+    <string name="Question2Op4">let eat : OK</string>
+
+    <string name="Question3">3) Which is not a build in type of Kotlin?</string>
+    <string name="Question3Op1">Numbers</string>
+    <string name="Question3Op2">Characters</string>
+    <string name="Question3Op3">Booleans</string>
+    <string name="Question3Op4">BigDecimal</string>
+
+    <string name="Question4">4) Which option is incorrect</string>
+    <string name="Question4Op1">(+) is a <b>Addition</b> operator in Kotlin</string>
+    <string name="Question4Op2">(/) is a <b>Division</b> operator in Kotlin</string>
+    <string name="Question4Op3">(%) is a <b>Modulus</b> operator in Kotlin</string>
+    <string name="Question4Op4">(^) is a <b>Multiply</b> operator in Kotlin</string>
+
+    <string name="Question5">5) val number1 = 15.5 \nval number2 = 3.5 \nvar result: Double \nresult = number1 + number2 \n
+    println("number1 \n+ number2 = $result") \nWhat is the output of these codes</string>
+    <string name="Question5Op1">number1 + number2 = 16.0</string>
+    <string name="Question5Op2">number1 + number2 = 19.0</string>
+    <string name="Question5Op3">number1 / number2 = 19.0</string>
+    <string name="Question5Op4">number1 % number2 = 19.0</string>
+
+    <string name="Question6">6) What does this expression translate to? \n a +=b</string>
+    <string name="Question6Op1">a = a % b</string>
+    <string name="Question6Op2">a = a - b</string>
+    <string name="Question6Op3">a = a + b</string>
+    <string name="Question6Op4">a = a * b</string>
+
+    <string name="Question7">7) Which option is incorrect?</string>
+    <string name="Question7Op1">(>) means <b>greater than</b> in Kotlin</string>
+    <string name="Question7Op2">(>=) means <b>greater than or equals to</b> in Kotlin</string>
+    <string name="Question7Op3">(!=) means <b>is equals to</b> in Kotlin</string>
+    <string name="Question7Op4">(==) means <b>is equals to</b> in Kotlin</string>
+
+    <string name="Question8">8) Which option is the correct way to do number conversion in Kotlin?</string>
+    <string name="Question8Op1">int num1 = 55;\nlong num2 = num1;</string>
+    <string name="Question8Op2">val num1: Int = 55\nval num2: Long = num1</string>
+    <string name="Question8Op3">val num1: Int = 55\nval num2: Long = num1.toLong()</string>
+    <string name="Question8Op4">val number1: Int = 55\nvar number2: Long = 11\nnumber2=number1</string>
+
+    <string name="StartingText">No previous score.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

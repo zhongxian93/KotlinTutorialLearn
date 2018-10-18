@@ -71,6 +71,13 @@ class HomeFragment : Fragment() {
             ft.commit()
 
         }
+
+        var btnQuiz = v.findViewById<Button>(R.id.Btn5)
+        btnQuiz.setOnClickListener{
+            Intent()
+            val myIntent = Intent(activity, QuizActivity::class.java)
+            startActivity(myIntent)
+        }
         return v
     }
 }
