@@ -11,7 +11,10 @@
     <string name="operators">Kotlin Operators</string>
     <string name="conversion">Kotlin Type Conversion</string>
     <string name="quiz">Kotlin Quiz</string>
-
+    <string name="level1">Level 1</string>
+    <string name="level2">Level 2</string>
+    <string name="level3">Level 3</string>
+    <string name="level4">Level 4</string>
     <string name="Question1">1) Which is the correct statement to print "Hello World!" in kotlin?</string>
     <string name="Question1Op1">println("Hello, World!")</string>
     <string name="Question1Op2">System.out.println("Hello, World!");</string>

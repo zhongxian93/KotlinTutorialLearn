@@ -40,7 +40,7 @@ class QuizActivity : AppCompatActivity() {
         //sharedPreferences.edit().clear();
         if(!sharedPreferences.getString(SCORE, "na").equals("na")){
 
-            textView9.setText("Prevvous score: " +  sharedPreferences.getString(SCORE, "na"))
+            textView9.setText("Previous score: " +  sharedPreferences.getString(SCORE, "na"))
         }
         correctIndexQ1 = getResources().getString(R.string.Question1Op1)
         correctIndexQ2 = getResources().getString(R.string.Question2Op3)
