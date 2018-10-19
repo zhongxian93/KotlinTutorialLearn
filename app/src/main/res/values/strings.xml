@@ -66,6 +66,20 @@
 
     <string name="StartingText">No previous score.</string>
 
+    <string name="quizLevel1">Quiz Level 1</string>
+    <string name="quizLevel2">Quiz Level 2</string>
+    <string name="quizLevel3">Quiz Level 3</string>
+    <string name="quizLevel4">Quiz Level 4</string>
+    <string name="submit">Submit</string>
+    <string name="NextLvL">Next Level</string>
+    <string name="BackHome">BackHome</string>
+
+    <string name="Achievement">Achievement:</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_quiz_level3">QuizLevel3</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

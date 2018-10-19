@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".QuizNavigation">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Achievement" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/Btn6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quizLevel1" />
+
+    <Button
+        android:id="@+id/Btn7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quizLevel2" />
+    <Button
+        android:id="@+id/Btn8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quizLevel3" />
+    <Button
+        android:id="@+id/Btn9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quizLevel4" />
+
+</LinearLayout>

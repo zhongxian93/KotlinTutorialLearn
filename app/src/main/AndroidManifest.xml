@@ -21,7 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".QuizLevel1" />
+        <activity android:name=".QuizLevel2" />
+        <activity
+            android:name=".QuizLevel3"
+            android:label="@string/title_activity_quiz_level3" />
+        <activity android:name=".QuizLevel4" />
+        <activity android:name=".QuizNavigation"></activity>
     </application>
 
 </manifest>
