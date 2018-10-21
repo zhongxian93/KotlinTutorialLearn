@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="?android:attr/colorEdgeEffect"
+                android:background="@drawable/rounded_corner"
                 android:text="@string/helloWorld" />
 
             <Button
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="?android:attr/colorEdgeEffect"
+                android:background="@drawable/rounded_corner"
                 android:text="@string/dataTypes" />
 
             <Button
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="?android:attr/colorEdgeEffect"
+                android:background="@drawable/rounded_corner"
                 android:text="@string/operators" />
 
             <Button
@@ -46,13 +46,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="?android:attr/colorEdgeEffect"
+                android:background="@drawable/rounded_corner"
                 android:text="@string/conversion" />
+
             <Button
                 android:id="@+id/Btn5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/quiz"/>
+                android:layout_margin="5dp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/quiz" />
 
 
         </LinearLayout>
