@@ -17,10 +17,10 @@ class QuizLevel3 : AppCompatActivity() {
     lateinit var sharedPreferences : SharedPreferences
 
     private var myPrefences = "myPrefs"
-    private var LEVELTHREE = "Level Three"
+    private var LEVELTHREE = false
     var correctIndexQ5 = ""
     var correctIndexQ6 = ""
-
+    private var currentLevel = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class QuizLevel3 : AppCompatActivity() {
         correctIndexQ6 = getResources().getString(R.string.Question6Op3)
         sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE)
         val btnNext = findViewById<Button>(R.id.btn_nextLvl)
-        if(!sharedPreferences.getBoolean(LEVELTHREE, false).equals(true)){
+        if(!sharedPreferences.getBoolean("LEVELTHREE", false).equals(true)){
             btnNext.setVisibility(View.GONE);
         }
 
@@ -77,8 +77,18 @@ class QuizLevel3 : AppCompatActivity() {
 
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
+                sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE)
+                var currentLevel = sharedPreferences.getInt("currentLevel",1)
+                var quizCompletedBefore = sharedPreferences.getBoolean("LEVELTHREE", false)
+                if (quizCompletedBefore != true) {
+                    Toast.makeText(applicationContext,"Level completed before? " + quizCompletedBefore, Toast.LENGTH_SHORT).show()
+                    currentLevel = currentLevel + 1
+                }
 
-                editor.putBoolean(LEVELTHREE, true)
+
+
+                editor.putInt("currentLevel", currentLevel)
+                editor.putBoolean("LEVELTHREE", true)
                 editor.apply()
                 Toast.makeText(applicationContext,"All question correct \n  Level 3 Completed!\n You may move on to the next level" ,
                         Toast.LENGTH_SHORT).show()

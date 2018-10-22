@@ -16,11 +16,11 @@ class QuizLevel2 : AppCompatActivity() {
     lateinit var sharedPreferences : SharedPreferences
 
     private var myPrefences = "myPrefs"
-    private var LEVELONE = "Level One"
-    private var LEVELTWO = "Level Two"
+    private var LEVELONE = false
+    private var LEVELTWO = false
     var correctIndexQ3 = ""
     var correctIndexQ4 = ""
-
+    private var currentLevel = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_level2)
@@ -29,7 +29,7 @@ class QuizLevel2 : AppCompatActivity() {
         correctIndexQ3 = getResources().getString(R.string.Question3Op4)
         correctIndexQ4 = getResources().getString(R.string.Question4Op4)
         sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE)
-        if(!sharedPreferences.getBoolean(LEVELTWO, false).equals(true)){
+        if(!sharedPreferences.getBoolean("LEVELTWO", false).equals(true)){
             btnNext.setVisibility(View.GONE);
         }
         val submitBtn = findViewById<Button>(R.id.btnSubmit1)
@@ -76,8 +76,18 @@ class QuizLevel2 : AppCompatActivity() {
 
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
+                sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE)
+                var currentLevel = sharedPreferences.getInt("currentLevel",1)
+                var quizCompletedBefore = sharedPreferences.getBoolean("LEVELTWO", false)
+                if (quizCompletedBefore != true) {
+                    Toast.makeText(applicationContext,"Level completed before? " + quizCompletedBefore, Toast.LENGTH_SHORT).show()
+                    currentLevel = currentLevel + 1
+                }
 
-                editor.putBoolean(LEVELTWO, true)
+
+
+                editor.putInt("currentLevel", currentLevel)
+                editor.putBoolean("LEVELTWO", true)
                 editor.apply()
                 Toast.makeText(applicationContext,"All question correct \n  Level 2 Completed!\n You may move on to the next level",
                         Toast.LENGTH_SHORT).show()

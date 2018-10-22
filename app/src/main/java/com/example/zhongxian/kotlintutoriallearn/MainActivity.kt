@@ -1,5 +1,9 @@
 package com.example.zhongxian.kotlintutoriallearn
 
+import android.content.Context
+import android.content.IntentFilter
+import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -9,12 +13,19 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.zhongxian.kotlintutoriallearn.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MyBroadcastReceiver.receiverListener {
+    lateinit var sharedPreferences : SharedPreferences
+    lateinit var receiver: MyBroadcastReceiver
+    lateinit var context : Context
+    private var myPrefences = "myPrefs"
+    private var currentLevel = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +44,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val homeFragment = HomeFragment()
         transaction.replace(R.id.main,homeFragment).commit()
         Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        receiver = MyBroadcastReceiver()
+        registerReceiver(receiver, filter)
+        MyBroadcastReceiver.receiverListener = this
+    }
+
+    override fun onPause() {
+        unregisterReceiver(receiver)
+        super.onPause()
+    }
+
+    override fun onNetworkConnectionStatusChanged(isConnected: Boolean) {
+        if (isConnected == false) {
+            Toast.makeText(this, "Hey there! Connect to the internet to access more documents on Kotlin!", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Great you are connected to the Internet! Let's start learning Kotlin now!", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onBackPressed() {

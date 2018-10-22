@@ -13,16 +13,16 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivAndroidIcon"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/level4icon" />
+        app:srcCompat="@drawable/level1icon" />
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCurrentLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="25dp"
