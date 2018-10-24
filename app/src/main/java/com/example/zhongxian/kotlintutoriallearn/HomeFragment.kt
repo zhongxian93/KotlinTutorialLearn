@@ -74,9 +74,11 @@ class HomeFragment : Fragment() {
 
         var btnQuiz = v.findViewById<Button>(R.id.Btn5)
         btnQuiz.setOnClickListener{
-            Intent()
-            val myIntent = Intent(activity, QuizNavigation::class.java)
-            startActivity(myIntent)
+            val ft = fragmentManager!!.beginTransaction()
+            val quizNavigationFragment = QuizNavigationFragment()
+            ft.replace(R.id.main, quizNavigationFragment, "NewFragmentTag")
+            ft.addToBackStack(null);
+            ft.commit()
         }
 
 
