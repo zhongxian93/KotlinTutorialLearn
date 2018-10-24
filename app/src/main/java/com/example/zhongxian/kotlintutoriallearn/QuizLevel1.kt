@@ -77,11 +77,11 @@ class QuizLevel1 : AppCompatActivity() {
 
             if(counterMarks>1){
                 sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE)
-                var currentLevel = sharedPreferences.getInt("currentLevel",1)
+                var userLevel = sharedPreferences.getInt("currentLevel",1)
                 var quizCompletedBefore = sharedPreferences.getBoolean("LEVELONE", false)
                 if (quizCompletedBefore != true) {
                     Toast.makeText(applicationContext,"Level completed before? " + quizCompletedBefore, Toast.LENGTH_SHORT).show()
-                    currentLevel = currentLevel + 1
+                    userLevel = userLevel + 1
                 }
 
                 val editor = sharedPreferences.edit()

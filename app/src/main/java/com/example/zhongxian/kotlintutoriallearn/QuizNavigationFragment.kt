@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_quiz_navigation.*
 
 
@@ -36,6 +37,7 @@ class QuizNavigationFragment : Fragment() {
     private var LEVELTWO = "Level Two"
     private var LEVELTHREE = "Level Three"
     private var LEVELFOUR = "Level Four"
+    private var currentLevel = 1
     var acheiveString = ""
     lateinit var v : View
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -95,7 +97,10 @@ class QuizNavigationFragment : Fragment() {
 
         var btn9 = v.findViewById<Button>(R.id.Btn9)
         btn9.visibility= View.VISIBLE;
-
+        var userLevel = sharedPreferences.getInt("currentLevel",1)
+        Toast.makeText(getActivity(),"Current LEvel: " + userLevel,
+                Toast.LENGTH_SHORT).show()
+        acheiveString += "User Level: " + userLevel + " \n"
         if(sharedPreferences.getBoolean(LEVELONE, false).equals(true)){
             acheiveString+= LEVELONE + " Completed!\n"
         }
