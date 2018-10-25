@@ -9,10 +9,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,9 +40,9 @@ class QuizLevel4Fragment : Fragment() {
         correctIndexQ7 = getResources().getString(R.string.Question7Op3)
         correctIndexQ8 = getResources().getString(R.string.Question8Op3)
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
-
+        var completedQuiz = sharedPreferences.getBoolean("LEVELFOUR", false)
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
-        if(!sharedPreferences.getBoolean("LEVELFOUR", false).equals(true)){
+        if(!completedQuiz.equals(true)){
             btnNext.setVisibility(View.GONE);
         }
 
@@ -92,7 +90,43 @@ class QuizLevel4Fragment : Fragment() {
 
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
+                var userLevel = sharedPreferences.getInt("currentLevel",1)
+                completedQuiz = sharedPreferences.getBoolean("LEVELFOUR", false)
+                if(completedQuiz == false) {
+                    userLevel = userLevel+1
+                }
+                //val navigationView = findViewById<NavigationView>(R.id.nav_view)
+                val navigationView = getActivity()!!.nav_view
+                val hView = navigationView.getHeaderView(0)
+                val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
 
+//                var inflatedView = layoutInflater.inflate(R.layout.nav_header_main, null)
+//                var imageView = hView.findViewById<ImageView>(R.id.iv1)
+//                var textViewCurrentLevel = inflatedView.findViewById<TextView>(R.id.tvCurrentLevel)
+//                var androidIcon = inflatedView.findViewById<ImageView>(R.id.ivAndroidIcon)
+//                Toast.makeText(this,"AndroidIcon: " + androidIcon, Toast.LENGTH_LONG).show()
+                if (userLevel == 2) {
+                    Toast.makeText(getActivity(),"Attempting to change icon/image", Toast.LENGTH_LONG).show()
+//                    Toast.makeText(getActivity(),"textView: " + R.id.tvCurrentLevel, Toast.LENGTH_LONG).show()
+                    Toast.makeText(getActivity(),"ImageView: " + R.id.ivAndroidIcon, Toast.LENGTH_LONG).show()
+                    Toast.makeText(getActivity(),"AndroidIcon: " + androidIcon, Toast.LENGTH_LONG).show()
+                    Toast.makeText(getActivity(),"Drawable icon: " + R.drawable.level2icon, Toast.LENGTH_LONG).show()
+                    androidIcon.setImageResource(R.drawable.level2icon)
+//                    androidIcon.setImageResource(R.drawable.level2icon)
+//                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level2icon));
+//                    textViewCurrentLevel.setText("Level 2")
+                } else if (userLevel == 3) {
+                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level3icon));
+//                    imageView.setImageResource(R.drawable.level3icon)
+//            textViewCurrentLevel.setText("Level 3")
+                } else if (userLevel >= 4) {
+                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level4icon));
+//                    imageView.setImageResource(R.drawable.level4icon)
+//            textViewCurrentLevel.setText("Level 4")
+                }
+                Toast.makeText(getActivity(),"Current Level: " + userLevel,
+                        Toast.LENGTH_SHORT).show()
+                editor.putInt("currentLevel", userLevel)
                 editor.putBoolean("LEVELFOUR", true)
                 editor.apply()
                 Toast.makeText(getActivity(),"All question correct \n  Level 4 Completed!\n" +"You may return.",

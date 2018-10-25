@@ -91,7 +91,7 @@ class QuizLevel3Fragment : Fragment() {
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
                 var userLevel = sharedPreferences.getInt("currentLevel",1)
-
+                completedQuiz = sharedPreferences.getBoolean("LEVELTHREE", false)
                 if(completedQuiz == false) {
                     userLevel = userLevel+1
                 }
