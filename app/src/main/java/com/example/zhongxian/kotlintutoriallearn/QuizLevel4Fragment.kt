@@ -99,30 +99,20 @@ class QuizLevel4Fragment : Fragment() {
                 val navigationView = getActivity()!!.nav_view
                 val hView = navigationView.getHeaderView(0)
                 val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
-
-//                var inflatedView = layoutInflater.inflate(R.layout.nav_header_main, null)
-//                var imageView = hView.findViewById<ImageView>(R.id.iv1)
-//                var textViewCurrentLevel = inflatedView.findViewById<TextView>(R.id.tvCurrentLevel)
-//                var androidIcon = inflatedView.findViewById<ImageView>(R.id.ivAndroidIcon)
-//                Toast.makeText(this,"AndroidIcon: " + androidIcon, Toast.LENGTH_LONG).show()
+                val textViewCurrentLevel = hView.findViewById<TextView>(R.id.tvCurrentLevel)
                 if (userLevel == 2) {
-                    Toast.makeText(getActivity(),"Attempting to change icon/image", Toast.LENGTH_LONG).show()
-//                    Toast.makeText(getActivity(),"textView: " + R.id.tvCurrentLevel, Toast.LENGTH_LONG).show()
-                    Toast.makeText(getActivity(),"ImageView: " + R.id.ivAndroidIcon, Toast.LENGTH_LONG).show()
-                    Toast.makeText(getActivity(),"AndroidIcon: " + androidIcon, Toast.LENGTH_LONG).show()
-                    Toast.makeText(getActivity(),"Drawable icon: " + R.drawable.level2icon, Toast.LENGTH_LONG).show()
                     androidIcon.setImageResource(R.drawable.level2icon)
-//                    androidIcon.setImageResource(R.drawable.level2icon)
-//                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level2icon));
-//                    textViewCurrentLevel.setText("Level 2")
+                    textViewCurrentLevel.setText("Level 2")
                 } else if (userLevel == 3) {
-                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level3icon));
+                    androidIcon.setImageResource(R.drawable.level3icon)
 //                    imageView.setImageResource(R.drawable.level3icon)
-//            textViewCurrentLevel.setText("Level 3")
-                } else if (userLevel >= 4) {
-                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level4icon));
-//                    imageView.setImageResource(R.drawable.level4icon)
-//            textViewCurrentLevel.setText("Level 4")
+                    textViewCurrentLevel.setText("Level 3")
+                } else if (userLevel == 4) {
+                    androidIcon.setImageResource(R.drawable.level4icon)
+                    textViewCurrentLevel.setText("Level 4")
+                } else if (userLevel == 5) {
+                    androidIcon.setImageResource(R.drawable.level5icon)
+                    textViewCurrentLevel.setText("Level 5")
                 }
                 Toast.makeText(getActivity(),"Current Level: " + userLevel,
                         Toast.LENGTH_SHORT).show()

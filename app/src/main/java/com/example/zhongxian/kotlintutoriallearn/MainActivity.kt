@@ -44,6 +44,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val homeFragment = HomeFragment()
         transaction.replace(R.id.main,homeFragment).commit()
         Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
+
+        sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
+        var userLevel = sharedPreferences.getInt("currentLevel",1)
+        val hView = nav_view.getHeaderView(0)
+        val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
+        val textViewCurrentLevel = hView.findViewById<TextView>(R.id.tvCurrentLevel)
+        if (userLevel == 2) {
+            androidIcon.setImageResource(R.drawable.level2icon)
+            textViewCurrentLevel.setText("Level 2")
+        } else if (userLevel == 3) {
+            androidIcon.setImageResource(R.drawable.level3icon)
+//                    imageView.setImageResource(R.drawable.level3icon)
+            textViewCurrentLevel.setText("Level 3")
+        } else if (userLevel == 4) {
+            androidIcon.setImageResource(R.drawable.level4icon)
+            textViewCurrentLevel.setText("Level 4")
+        } else if (userLevel == 5) {
+            androidIcon.setImageResource(R.drawable.level5icon)
+            textViewCurrentLevel.setText("Level 5")
+        }
     }
 
     override fun onResume() {
