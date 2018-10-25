@@ -41,9 +41,9 @@ class QuizLevel1Fragment : Fragment() {
         correctIndexQ1 = getResources().getString(R.string.Question1Op1)
         correctIndexQ2 = getResources().getString(R.string.Question2Op3)
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
-
+        var completedQuiz = sharedPreferences.getBoolean("LEVELONE",false)
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
-        if(!sharedPreferences.getBoolean("LEVELONE", false).equals(true)){
+        if(!completedQuiz.equals(true)){
             btnNext.setVisibility(View.GONE);
         }
 
@@ -92,8 +92,10 @@ class QuizLevel1Fragment : Fragment() {
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
                 var userLevel = sharedPreferences.getInt("currentLevel",1)
-                userLevel = userLevel+1
 
+                if(completedQuiz == false) {
+                    userLevel = userLevel+1
+                }
                 //val navigationView = findViewById<NavigationView>(R.id.nav_view)
                 val navigationView = getActivity()!!.nav_view
                 val hView = navigationView.getHeaderView(0)
