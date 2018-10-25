@@ -9,10 +9,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,7 +42,8 @@ class QuizLevel3Fragment : Fragment() {
         correctIndexQ6 = getResources().getString(R.string.Question6Op3)
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
-        if(!sharedPreferences.getBoolean("LEVELTHREE", false).equals(true)){
+        var completedQuiz = sharedPreferences.getBoolean("LEVELTHREE",false)
+        if(!completedQuiz.equals(true)){
             btnNext.setVisibility(View.GONE);
         }
         val submitBtn = v.findViewById<Button>(R.id.btnSubmit1)
@@ -91,7 +90,39 @@ class QuizLevel3Fragment : Fragment() {
 
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
+                var userLevel = sharedPreferences.getInt("currentLevel",1)
 
+                if(completedQuiz == false) {
+                    userLevel = userLevel+1
+                }
+                //val navigationView = findViewById<NavigationView>(R.id.nav_view)
+                val navigationView = getActivity()!!.nav_view
+                val hView = navigationView.getHeaderView(0)
+                val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
+
+//                var inflatedView = layoutInflater.inflate(R.layout.nav_header_main, null)
+//                var imageView = hView.findViewById<ImageView>(R.id.iv1)
+//                var textViewCurrentLevel = inflatedView.findViewById<TextView>(R.id.tvCurrentLevel)
+//                var androidIcon = inflatedView.findViewById<ImageView>(R.id.ivAndroidIcon)
+//                Toast.makeText(this,"AndroidIcon: " + androidIcon, Toast.LENGTH_LONG).show()
+                if (userLevel == 2) {
+                    androidIcon.setImageResource(R.drawable.level2icon)
+//                    androidIcon.setImageResource(R.drawable.level2icon)
+//                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level2icon));
+//                    textViewCurrentLevel.setText("Level 2")
+                } else if (userLevel == 3) {
+                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level3icon));
+//                    imageView.setImageResource(R.drawable.level3icon)
+//            textViewCurrentLevel.setText("Level 3")
+                } else if (userLevel >= 4) {
+                    androidIcon.setImageDrawable(getResources().getDrawable(R.drawable.level4icon));
+//                    imageView.setImageResource(R.drawable.level4icon)
+//            textViewCurrentLevel.setText("Level 4")
+                }
+
+                Toast.makeText(getActivity(),"Current Level: " + userLevel,
+                        Toast.LENGTH_SHORT).show()
+                editor.putInt("currentLevel", userLevel)
                 editor.putBoolean("LEVELTHREE", true)
                 editor.apply()
                 Toast.makeText(getActivity(),"All question correct \n  Level 3 Completed!\n You may move on to the next level" ,
