@@ -32,7 +32,7 @@ class QuizLevel3Fragment : Fragment() {
     lateinit var sharedPreferences : SharedPreferences
 
     private var myPrefences = "myPrefs"
-    private var LEVELTHREE = "Level Three"
+    private var LEVELTHREE = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -44,7 +44,7 @@ class QuizLevel3Fragment : Fragment() {
         correctIndexQ6 = getResources().getString(R.string.Question6Op3)
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
-        if(!sharedPreferences.getBoolean(LEVELTHREE, false).equals(true)){
+        if(!sharedPreferences.getBoolean("LEVELTHREE", false).equals(true)){
             btnNext.setVisibility(View.GONE);
         }
         val submitBtn = v.findViewById<Button>(R.id.btnSubmit1)
@@ -92,7 +92,7 @@ class QuizLevel3Fragment : Fragment() {
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
 
-                editor.putBoolean(LEVELTHREE, true)
+                editor.putBoolean("LEVELTHREE", true)
                 editor.apply()
                 Toast.makeText(getActivity(),"All question correct \n  Level 3 Completed!\n You may move on to the next level" ,
                         Toast.LENGTH_SHORT).show()

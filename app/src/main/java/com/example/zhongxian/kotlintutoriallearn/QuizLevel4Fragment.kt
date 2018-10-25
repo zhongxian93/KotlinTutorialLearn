@@ -28,7 +28,7 @@ class QuizLevel4Fragment : Fragment() {
     lateinit var v : View;
 
     private var myPrefences = "myPrefs"
-    private var LEVELFOUR = "Level Four"
+    private var LEVELFOUR = false
     var correctIndexQ7 = ""
     var correctIndexQ8 = ""
     lateinit var sharedPreferences : SharedPreferences
@@ -44,7 +44,7 @@ class QuizLevel4Fragment : Fragment() {
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
 
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
-        if(!sharedPreferences.getBoolean(LEVELFOUR, false).equals(true)){
+        if(!sharedPreferences.getBoolean("LEVELFOUR", false).equals(true)){
             btnNext.setVisibility(View.GONE);
         }
 
@@ -93,7 +93,7 @@ class QuizLevel4Fragment : Fragment() {
             if(counterMarks>1){
                 val editor = sharedPreferences.edit()
 
-                editor.putBoolean(LEVELFOUR, true)
+                editor.putBoolean("LEVELFOUR", true)
                 editor.apply()
                 Toast.makeText(getActivity(),"All question correct \n  Level 4 Completed!\n" +"You may return.",
                         Toast.LENGTH_SHORT).show()

@@ -33,10 +33,10 @@ class QuizNavigationFragment : Fragment() {
     lateinit var sharedPreferences : SharedPreferences
 
     private var myPrefences = "myPrefs"
-    private var LEVELONE = "Level One"
-    private var LEVELTWO = "Level Two"
-    private var LEVELTHREE = "Level Three"
-    private var LEVELFOUR = "Level Four"
+    private var LEVELONE = false
+    private var LEVELTWO = false
+    private var LEVELTHREE = false
+    private var LEVELFOUR = false
     private var currentLevel = 1
     var acheiveString = ""
     lateinit var v : View
@@ -101,35 +101,35 @@ class QuizNavigationFragment : Fragment() {
         Toast.makeText(getActivity(),"Current LEvel: " + userLevel,
                 Toast.LENGTH_SHORT).show()
         acheiveString += "User Level: " + userLevel + " \n"
-        if(sharedPreferences.getBoolean(LEVELONE, false).equals(true)){
-            acheiveString+= LEVELONE + " Completed!\n"
+        if(sharedPreferences.getBoolean("LEVELONE", false).equals(true)){
+            acheiveString+= "Level One Completed!\n"
         }
         else{
-            acheiveString+= LEVELONE + " Not Completed!\n"
+            acheiveString+= "Level One Not Completed!\n"
             btn7.visibility= View.GONE;
         }
 
-        if(sharedPreferences.getBoolean(LEVELTWO, false).equals(true)){
-            acheiveString+= LEVELTWO + " Completed!\n"
+        if(sharedPreferences.getBoolean("LEVELTWO", false).equals(true)){
+            acheiveString+= "Level Two Completed!\n"
         }
         else{
-            acheiveString+= LEVELTWO + " Not Completed!\n"
+            acheiveString+= "Level Two Not Completed!\n"
             btn8.visibility= View.GONE;
         }
 
-        if(sharedPreferences.getBoolean(LEVELTHREE, false).equals(true)){
-            acheiveString+= LEVELTHREE + " Completed!\n"
+        if(sharedPreferences.getBoolean("LEVELTHREE", false).equals(true)){
+            acheiveString+= "Level Three Completed!\n"
         }
         else{
-            acheiveString+= LEVELTHREE + " Not Completed!\n"
+            acheiveString+= "Level Three Not Completed!\n"
             btn9.visibility= View.GONE;
         }
 
-        if(sharedPreferences.getBoolean(LEVELFOUR, false).equals(true)){
-            acheiveString+= LEVELFOUR + " Completed!\n"
+        if(sharedPreferences.getBoolean("LEVELFOUR", false).equals(true)){
+            acheiveString+= "Level Four Completed!\n"
         }
         else{
-            acheiveString+= LEVELFOUR + " Not Completed!\n"
+            acheiveString+= "Level Four Not Completed!\n"
         }
         var textViewAcheive = v.findViewById<TextView>(R.id.textView11)
         textViewAcheive.text = acheiveString
