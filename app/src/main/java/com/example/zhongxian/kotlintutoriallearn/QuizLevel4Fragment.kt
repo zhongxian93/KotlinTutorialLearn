@@ -30,7 +30,7 @@ class QuizLevel4Fragment : Fragment() {
     var correctIndexQ7 = ""
     var correctIndexQ8 = ""
     lateinit var sharedPreferences : SharedPreferences
-
+    lateinit var qsAnsDBHelper: DBHelper
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -40,6 +40,8 @@ class QuizLevel4Fragment : Fragment() {
         correctIndexQ7 = getResources().getString(R.string.Question7Op3)
         correctIndexQ8 = getResources().getString(R.string.Question8Op3)
         sharedPreferences = activity!!.getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
+        qsAnsDBHelper = DBHelper(v.context)
+        setOption("7","8")//provide the question number and set up checked option
         var completedQuiz = sharedPreferences.getBoolean("LEVELFOUR", false)
         val btnNext = v.findViewById<Button>(R.id.btn_nextLvl)
         if(!completedQuiz.equals(true)){
@@ -55,6 +57,12 @@ class QuizLevel4Fragment : Fragment() {
             if (id!=-1){ // If any radio button checked from radio group
                 // Get the instance of radio button using id
                 val radio: RadioButton = v.findViewById(id)
+                var qs1Data = qsAnsDBHelper.readQuestionAns("7")
+                if(qs1Data.size >0){
+                    updateQns("7", radio.text.toString());
+                }else{
+                    insertQns("7", radio.text.toString());
+                }
                 if(correctIndexQ7.trim()== radio.text.trim().toString()){
                     counterMarks++;
                     qs7.setBackgroundColor(0)
@@ -74,6 +82,12 @@ class QuizLevel4Fragment : Fragment() {
             if (id!=-1){ // If any radio button checked from radio group
                 // Get the instance of radio button using id
                 val radio: RadioButton = v.findViewById(id)
+                var qs1Data = qsAnsDBHelper.readQuestionAns("8")
+                if(qs1Data.size >0){
+                    updateQns("8", radio.text.toString());
+                }else{
+                    insertQns("8", radio.text.toString());
+                }
                 if(correctIndexQ8.trim()== radio.text.trim().toString()){
                     counterMarks++;
                     qs8.setBackgroundColor(0)
@@ -137,6 +151,58 @@ class QuizLevel4Fragment : Fragment() {
         }
 
         return v;
+    }
+
+    fun updateQns(qsNum:String, qsAns:String){
+        var result = qsAnsDBHelper.updateQuestionAns(qsNum,qsAns);
+
+    }
+
+    fun insertQns(qsNum:String, qsAns:String){
+        var result = qsAnsDBHelper.insertQuestionAns(DataRecord(qsNum, qsAns))
+
+    }
+    fun setOption(questionNum1:String, questionNum2:String) {
+        var qs1 = qsAnsDBHelper.readQuestionAns(questionNum1)
+        if(qs1.size >0){
+            val radio: RadioButton = v.findViewById(R.id.q7Option1)
+            if(radio.text.toString().equals(qs1[0].answer)){
+                radio.setChecked(true);
+            }
+            val radio2: RadioButton = v.findViewById(R.id.q7Optio2)
+            if(radio2.text.toString().equals(qs1[0].answer)){
+                radio2.setChecked(true);
+            }
+            val radio3: RadioButton = v.findViewById(R.id.q7Option3)
+            if(radio3.text.toString().equals(qs1[0].answer)){
+                radio3.setChecked(true);
+            }
+            val radio4: RadioButton = v.findViewById(R.id.q7Option4)
+            if(radio4.text.toString().equals(qs1[0].answer)){
+                radio4.setChecked(true);
+            }
+
+        }
+        var qs2 = qsAnsDBHelper.readQuestionAns(questionNum2)
+        if(qs2.size >0){
+            val radio: RadioButton = v.findViewById(R.id.q8Option1)
+            if(radio.text.toString().equals(qs2[0].answer)){
+                radio.setChecked(true);
+            }
+            val radio2: RadioButton = v.findViewById(R.id.q8Optio2)
+            if(radio2.text.toString().equals(qs2[0].answer)){
+                radio2.setChecked(true);
+            }
+            val radio3: RadioButton = v.findViewById(R.id.q8Option3)
+            if(radio3.text.toString().equals(qs2[0].answer)){
+                radio3.setChecked(true);
+            }
+            val radio4: RadioButton = v.findViewById(R.id.q8Option4)
+            if(radio4.text.toString().equals(qs2[0].answer)){
+                radio4.setChecked(true);
+            }
+
+        }
     }
 
 
