@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     editor.putString("userName", yourEditTextValue)
                     editor.apply()
                     Toast.makeText(this, "UserName set :"+yourEditTextValue,Toast.LENGTH_SHORT).show()
-                    text11.text  = "Welcome "+yourEditTextValue;
+                    text11.text  = yourEditTextValue;
                 }
 
             })
