@@ -33,8 +33,15 @@
     <item android:title="Intermediate">
         <menu>
             <item
+                android:id="@+id/Loop"
+                android:title="Loop" />
+            <item
                 android:id="@+id/Function"
                 android:title="Function" />
+            <item
+                android:id="@+id/Object"
+                android:title="Object" />
+
         </menu>
     </item>
 </menu>

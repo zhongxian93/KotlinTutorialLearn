@@ -159,6 +159,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 transaction.replace(R.id.main,quizNavigationFragment).commit()
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
+
+            R.id.Loop -> {
+                val fm = supportFragmentManager
+                val transaction = fm.beginTransaction()
+                val loopFragment = LoopFragment()
+                transaction.addToBackStack(null)
+                transaction.replace(R.id.main,loopFragment).commit()
+                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+            }
+
             R.id.Function -> {
                 val fm = supportFragmentManager
                 val transaction = fm.beginTransaction()
@@ -168,6 +178,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
+            R.id.Object -> {
+                val fm = supportFragmentManager
+                val transaction = fm.beginTransaction()
+                val objectFragment = ObjectFragment()
+                transaction.addToBackStack(null)
+                transaction.replace(R.id.main,objectFragment).commit()
+                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+            }
 
         }
         drawer_layout.closeDrawer(GravityCompat.START)
