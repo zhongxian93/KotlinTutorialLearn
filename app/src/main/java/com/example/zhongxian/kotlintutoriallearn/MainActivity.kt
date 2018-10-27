@@ -19,6 +19,12 @@ import android.widget.Toast
 import com.example.zhongxian.kotlintutoriallearn.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import android.content.DialogInterface
+import android.support.v7.app.AlertDialog
+import android.text.Editable
+import android.widget.EditText
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MyBroadcastReceiver.receiverListener {
     lateinit var sharedPreferences : SharedPreferences
@@ -43,13 +49,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val transaction = fm.beginTransaction()
         val homeFragment = HomeFragment()
         transaction.replace(R.id.main,homeFragment).commit()
-        Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
 
         sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
+
+
         var userLevel = sharedPreferences.getInt("currentLevel",1)
         val hView = nav_view.getHeaderView(0)
         val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
         val textViewCurrentLevel = hView.findViewById<TextView>(R.id.tvCurrentLevel)
+        var text11 = hView.findViewById<TextView>(R.id.textView12)
+        var userName = sharedPreferences.getString("userName","");
+        //Toast.makeText(this, userName,Toast.LENGTH_SHORT).show()
+        showAlertForUsername(userName,text11);
         if (userLevel == 2) {
             androidIcon.setImageResource(R.drawable.level2icon)
             textViewCurrentLevel.setText("Level 2")
@@ -66,6 +78,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    fun showAlertForUsername(userName:String,text11:TextView){
+
+        if(userName.equals("")){
+            val alert = AlertDialog.Builder(this)
+            val edittext = EditText(this)
+            alert.setMessage("Please enter your name")
+            alert.setTitle("Alert")
+
+            alert.setView(edittext)
+
+            alert.setPositiveButton("Submit", DialogInterface.OnClickListener { dialog, whichButton ->
+
+                //OR
+                val yourEditTextValue = edittext.text.toString()
+
+                if(yourEditTextValue.equals("")){
+                    Toast.makeText(this,"Please enter name before continuing", Toast.LENGTH_LONG).show();
+                    showAlertForUsername(userName,text11);
+                }else{
+                    val editor = sharedPreferences.edit()
+                    editor.putString("userName", yourEditTextValue)
+                    editor.apply()
+                    Toast.makeText(this, "UserName set :"+yourEditTextValue,Toast.LENGTH_SHORT).show()
+                    text11.text  = "Welcome "+yourEditTextValue;
+                }
+
+            })
+
+
+            alert.show()
+        }else{
+            text11.text  = "Welcome "+userName;
+        }
+    }
     override fun onResume() {
         super.onResume()
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
