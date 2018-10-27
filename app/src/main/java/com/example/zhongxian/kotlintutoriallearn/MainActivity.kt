@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> return true
+//            R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
         }
     }
@@ -157,6 +157,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val quizNavigationFragment = QuizNavigationFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,quizNavigationFragment).commit()
+                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+            }
+            R.id.Function -> {
+                val fm = supportFragmentManager
+                val transaction = fm.beginTransaction()
+                val functionsFragment = FunctionsFragment()
+                transaction.addToBackStack(null)
+                transaction.replace(R.id.main,functionsFragment).commit()
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
