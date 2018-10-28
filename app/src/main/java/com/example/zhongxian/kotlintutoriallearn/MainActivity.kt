@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             alert.show()
         }else{
-            text11.text  = "Welcome "+userName;
+            text11.text  = userName;
         }
     }
     override fun onResume() {
