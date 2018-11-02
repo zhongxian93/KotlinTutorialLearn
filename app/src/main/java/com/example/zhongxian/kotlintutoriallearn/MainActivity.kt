@@ -13,17 +13,18 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import com.example.zhongxian.kotlintutoriallearn.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.text.Editable
-import android.widget.EditText
-
+import android.R.attr.scaleHeight
+import android.R.attr.scaleWidth
+import android.graphics.drawable.ScaleDrawable
+import android.support.v4.content.ContextCompat
+import android.graphics.drawable.Drawable
+import android.widget.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MyBroadcastReceiver.receiverListener {
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         sharedPreferences = getSharedPreferences(myPrefences, Context.MODE_PRIVATE);
 
-
+        setTitle("Home");
         var userLevel = sharedPreferences.getInt("currentLevel",1)
         val hView = nav_view.getHeaderView(0)
         val androidIcon = hView.findViewById<ImageView>(R.id.ivAndroidIcon)
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             androidIcon.setImageResource(R.drawable.level5icon)
             textViewCurrentLevel.setText("Level 5")
         }
+
     }
 
     fun showAlertForUsername(userName:String,text11:TextView){
@@ -165,7 +167,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val transaction = fm.beginTransaction()
                 val homeFragment = HomeFragment()
                 transaction.replace(R.id.main,homeFragment).commit()
-                Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
+                setTitle("Home");
+                //Toast.makeText(this,"this is home fragment", Toast.LENGTH_LONG).show()
             }
             R.id.helloWorld -> {
                 // Handle the camera action
@@ -174,6 +177,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val fragHellowWorldFragment = HelloWorldFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,fragHellowWorldFragment).commit()
+                setTitle("Introduction Hello World");
             }
             R.id.variable_Types -> {
                 val fm = supportFragmentManager
@@ -181,13 +185,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val variablesTypesFragment = VariablesTypesFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,variablesTypesFragment).commit()
+                setTitle("Introduction Variable Types");
             }
             R.id.Operators -> {
                 val fm = supportFragmentManager
                 val transaction = fm.beginTransaction()
                 val operatorsFragment = OperatorsFragment()
                 transaction.replace(R.id.main,operatorsFragment).commit()
-                //Toast.makeText(this,"Operators is Operators fragment", Toast.LENGTH_LONG).show()
+                setTitle("Introduction Operators");
             }
             R.id.Conversion -> {
                 val fm = supportFragmentManager
@@ -195,7 +200,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val conversionFragment = ConversionFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,conversionFragment).commit()
-                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+                setTitle("Introduction Conversion");
             }
             R.id.Quiz -> {
                 val fm = supportFragmentManager
@@ -203,6 +208,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val quizNavigationFragment = QuizNavigationFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,quizNavigationFragment).commit()
+                setTitle("Quiz");
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
@@ -212,6 +218,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val loopFragment = LoopFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,loopFragment).commit()
+                setTitle("Intermedeate Loop");
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
@@ -221,7 +228,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val functionsFragment = FunctionsFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,functionsFragment).commit()
-                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+                setTitle("Intermedeate Function");
             }
 
             R.id.Object -> {
@@ -230,7 +237,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val objectFragment = ObjectFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,objectFragment).commit()
-                //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
+                setTitle("Intermedeate Object");
             }
 
         }

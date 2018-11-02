@@ -12,7 +12,7 @@
         android:color="#29395e" />
 
     <size
-        android:width="300dp"
-        android:height="120dp" />
+        android:width="150dp"
+        android:height="80dp" />
 
 </shape>
