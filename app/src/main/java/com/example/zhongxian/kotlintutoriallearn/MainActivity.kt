@@ -78,6 +78,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             textViewCurrentLevel.setText("Level 5")
         }
 
+
+
     }
 
     fun showAlertForUsername(userName:String,text11:TextView){

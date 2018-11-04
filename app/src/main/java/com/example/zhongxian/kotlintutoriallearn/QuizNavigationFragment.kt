@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_quiz_navigation.*
+
 
 
 // TODO: Rename parameter arguments, choose names that match
