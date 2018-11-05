@@ -60,9 +60,13 @@
 
             <Button
                 android:id="@+id/btn_getWeather"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Refresh" />
+                android:layout_width="54dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/rounded_corner"
+                android:drawableRight="@mipmap/refresh_icon" />
+
 
             <ImageView
                 android:id="@+id/iv_Weather"

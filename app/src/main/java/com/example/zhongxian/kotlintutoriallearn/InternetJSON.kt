@@ -32,7 +32,7 @@ class InternetJSON(private var c: Context, private var jsonURL:String, private v
             Toast.makeText(c, error, Toast.LENGTH_LONG).show()
             Toast.makeText(c,"Connection issue: Reconnect to internet", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(c, "Network Connection and Download successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(c, "Network Connected and Weather Retreived", Toast.LENGTH_SHORT).show()
             JSONParser(c, jsonData, myImageView).execute()
         }
 

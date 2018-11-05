@@ -86,6 +86,7 @@ class HomeFragment : Fragment() {
 
         val ivWeather = v.findViewById<ImageView>(R.id.iv_Weather)
         var btnGetWeather = v.findViewById<Button>(R.id.btn_getWeather)
+        InternetJSON(getActivity(), jsonURL, ivWeather).execute()
         btnGetWeather.setOnClickListener{
             InternetJSON(getActivity(), jsonURL, ivWeather).execute()
         }

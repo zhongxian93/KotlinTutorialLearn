@@ -32,6 +32,7 @@ class JSONParser(private var c: Context, private var jsonData: String, private v
                 Toast.makeText(c, "The sky is clear and the weather is cooling, why not learn some kotlin!", Toast.LENGTH_LONG).show()
             } else if (listOfForecast[0].getIcon() == "rain") {
                 Toast.makeText(c, "It is raining now...let's just stay at home and learn some kotlin!", Toast.LENGTH_LONG).show()
+                myImageView.setImageResource(R.drawable.partlycloudy)
             } else if (listOfForecast[0].getIcon() == "snow") {
                 Toast.makeText(c, "Brrrrrr it's so cold! Let's just stay at home and learn kotlin!", Toast.LENGTH_LONG).show()
             } else if (listOfForecast[0].getIcon() == "sleet") {
