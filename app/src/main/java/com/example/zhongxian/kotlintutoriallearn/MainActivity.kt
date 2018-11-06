@@ -1,5 +1,6 @@
 package com.example.zhongxian.kotlintutoriallearn
 
+import android.Manifest
 import android.content.Context
 import android.content.IntentFilter
 import android.content.SharedPreferences
@@ -21,9 +22,15 @@ import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.R.attr.scaleHeight
 import android.R.attr.scaleWidth
+import android.annotation.TargetApi
+import android.content.pm.PackageManager
 import android.graphics.drawable.ScaleDrawable
 import android.support.v4.content.ContextCompat
 import android.graphics.drawable.Drawable
+import android.os.Build
+import android.support.annotation.RequiresApi
+import android.support.v4.app.ActivityCompat.requestPermissions
+import android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale
 import android.widget.*
 
 
@@ -33,11 +40,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var context : Context
     private var myPrefences = "myPrefs"
     private var currentLevel = 1
+    private val permissionList =
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -81,6 +92,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     }
+
 
     fun showAlertForUsername(userName:String,text11:TextView){
 
