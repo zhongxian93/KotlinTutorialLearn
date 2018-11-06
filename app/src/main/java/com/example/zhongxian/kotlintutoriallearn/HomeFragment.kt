@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 
 
@@ -35,60 +36,14 @@ class HomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_home, container, false)
-        var btnHello = v.findViewById<Button>(R.id.Btn1)
-        btnHello.setOnClickListener{
-            val ft = fragmentManager!!.beginTransaction()
-            val helloWorldFragment = HelloWorldFragment()
-            ft.replace(R.id.main, helloWorldFragment, "NewFragmentTag")
-            ft.addToBackStack(null);
-            ft.commit()
 
-        }
-
-        var btnVariable = v.findViewById<Button>(R.id.Btn2)
-        btnVariable.setOnClickListener{
-            val ft = fragmentManager!!.beginTransaction()
-            val variablesTypesFragment = VariablesTypesFragment()
-            ft.replace(R.id.main, variablesTypesFragment, "NewFragmentTag")
-            ft.addToBackStack(null);
-            ft.commit()
-
-        }
-
-        var btnOperators = v.findViewById<Button>(R.id.Btn3)
-        btnOperators.setOnClickListener{
-            val ft = fragmentManager!!.beginTransaction()
-            val operatorsFragment = OperatorsFragment()
-            ft.replace(R.id.main, operatorsFragment, "NewFragmentTag")
-            ft.addToBackStack(null);
-            ft.commit()
-
-        }
-
-        var btnConversion = v.findViewById<Button>(R.id.Btn4)
-        btnConversion.setOnClickListener{
-            val ft = fragmentManager!!.beginTransaction()
-            val conversionFragment = ConversionFragment()
-            ft.replace(R.id.main, conversionFragment, "NewFragmentTag")
-            ft.addToBackStack(null);
-            ft.commit()
-
-        }
-
-        var btnQuiz = v.findViewById<Button>(R.id.Btn5)
-        btnQuiz.setOnClickListener{
-            val ft = fragmentManager!!.beginTransaction()
-            val quizNavigationFragment = QuizNavigationFragment()
-            ft.replace(R.id.main, quizNavigationFragment, "NewFragmentTag")
-            ft.addToBackStack(null);
-            ft.commit()
-        }
 
         val ivWeather = v.findViewById<ImageView>(R.id.iv_Weather)
+        val tvWeather = v.findViewById<TextView>(R.id.tv_WeatherSummary)
         var btnGetWeather = v.findViewById<Button>(R.id.btn_getWeather)
-        InternetJSON(getActivity(), jsonURL, ivWeather).execute()
+        InternetJSON(getActivity(), jsonURL, ivWeather, tvWeather).execute()
         btnGetWeather.setOnClickListener{
-            InternetJSON(getActivity(), jsonURL, ivWeather).execute()
+            InternetJSON(getActivity(), jsonURL, ivWeather, tvWeather).execute()
         }
 
 

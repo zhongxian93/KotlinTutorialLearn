@@ -179,7 +179,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val fragHellowWorldFragment = HelloWorldFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,fragHellowWorldFragment).commit()
-                setTitle("Introduction Hello World");
+                setTitle("Introduction: Hello World");
             }
             R.id.variable_Types -> {
                 val fm = supportFragmentManager
@@ -187,14 +187,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val variablesTypesFragment = VariablesTypesFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,variablesTypesFragment).commit()
-                setTitle("Introduction Variable Types");
+                setTitle("Introduction: Variable Types");
             }
             R.id.Operators -> {
                 val fm = supportFragmentManager
                 val transaction = fm.beginTransaction()
                 val operatorsFragment = OperatorsFragment()
                 transaction.replace(R.id.main,operatorsFragment).commit()
-                setTitle("Introduction Operators");
+                setTitle("Introduction: Operators");
             }
             R.id.Conversion -> {
                 val fm = supportFragmentManager
@@ -202,7 +202,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val conversionFragment = ConversionFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,conversionFragment).commit()
-                setTitle("Introduction Conversion");
+                setTitle("Introduction: Conversion");
             }
             R.id.Quiz -> {
                 val fm = supportFragmentManager
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val quizNavigationFragment = QuizNavigationFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,quizNavigationFragment).commit()
-                setTitle("Quiz");
+                setTitle("Introduction: Quiz");
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
@@ -220,7 +220,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val loopFragment = LoopFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,loopFragment).commit()
-                setTitle("Intermedeate Loop");
+                setTitle("Intermediate: Loop");
                 //Toast.makeText(this,"this is Conversion fragment", Toast.LENGTH_LONG).show()
             }
 
@@ -230,7 +230,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val functionsFragment = FunctionsFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,functionsFragment).commit()
-                setTitle("Intermedeate Function");
+                setTitle("Intermediate: Function");
             }
 
             R.id.Object -> {
@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val objectFragment = ObjectFragment()
                 transaction.addToBackStack(null)
                 transaction.replace(R.id.main,objectFragment).commit()
-                setTitle("Intermedeate Object");
+                setTitle("Intermediate: Object");
             }
 
         }

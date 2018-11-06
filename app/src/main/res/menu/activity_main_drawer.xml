@@ -10,7 +10,7 @@
             android:title="Home" />
     </group>
 
-    <item android:title="Kotlin Introduction">
+    <item android:title="Introduction">
         <menu>
             <item
                 android:id="@+id/helloWorld"

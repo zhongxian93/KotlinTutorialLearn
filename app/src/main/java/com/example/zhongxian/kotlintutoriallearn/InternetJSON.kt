@@ -3,6 +3,7 @@ package com.example.zhongxian.kotlintutoriallearn
 import android.content.Context
 import android.os.AsyncTask
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import java.io.BufferedInputStream
 import java.io.BufferedReader
@@ -12,7 +13,7 @@ import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
 
-class InternetJSON(private var c: Context, private var jsonURL:String, private var myImageView: ImageView) : AsyncTask<Void, Void, String>() {
+class InternetJSON(private var c: Context, private var jsonURL:String, private var myImageView: ImageView, private var myTextView : TextView) : AsyncTask<Void, Void, String>() {
     override fun onPreExecute() {
         super.onPreExecute()
     }
@@ -30,10 +31,10 @@ class InternetJSON(private var c: Context, private var jsonURL:String, private v
         } else if(jsonData.startsWith("CONNECT ERROR")) {
             val error = jsonData
             Toast.makeText(c, error, Toast.LENGTH_LONG).show()
-            Toast.makeText(c,"Connection issue: Reconnect to internet", Toast.LENGTH_LONG).show()
+            Toast.makeText(c,"Connection error: Reconnect to internet", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(c, "Network Connected and Weather Retreived", Toast.LENGTH_SHORT).show()
-            JSONParser(c, jsonData, myImageView).execute()
+//            Toast.makeText(c, "Network Connected and Weather Retreived", Toast.LENGTH_SHORT).show()
+            JSONParser(c, jsonData, myImageView, myTextView).execute()
         }
 
 

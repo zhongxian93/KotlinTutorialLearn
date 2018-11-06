@@ -98,8 +98,8 @@ class QuizNavigationFragment : Fragment() {
         var btn9 = v.findViewById<Button>(R.id.Btn9)
         btn9.visibility= View.VISIBLE;
         var userLevel = sharedPreferences.getInt("currentLevel",1)
-        Toast.makeText(getActivity(),"Current LEvel: " + userLevel,
-                Toast.LENGTH_SHORT).show()
+//        Toast.makeText(getActivity(),"Current Level: " + userLevel,
+//                Toast.LENGTH_SHORT).show()
         acheiveString += "User Level: " + userLevel + " \n"
         if(sharedPreferences.getBoolean("LEVELONE", false).equals(true)){
             acheiveString+= "Level One Completed!\n"
